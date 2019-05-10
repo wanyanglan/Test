@@ -1,0 +1,43 @@
+
+Pull项目到gitlab上步骤
+git clone git@github.com:djqiang/gitdemo.git
+git pull git@github.com:djqiang/gitdemo.git 
+
+如果pull项目出现该问题fatal: refusing to merge unrelated histories 
+git pull git@github.com:djqiang/gitdemo.git --allow-unrelated-histories
+就保存在你命令行现在所在的目录里。
+可以先用cd这个命令去你想保存的目录以后再git clone
+
+Push项目到gitlab上步骤
+1. git init
+ 
+2.git remote add origin git@github.com:djqiang/gitdemo.git
+ 
+提示出错信息：fatal: remote origin already exists.
+    解决办法如下：
+    1、先输入$ git remote rm origin 
+    2、再输入$ git remote add origin git@github.com:djqiang/gitdemo.git 就不会报错了！
+3.	git add .
+ 
+4.	git commit -m “填写一些更新信息”
+ 
+5.	git push origin master
+
+
+Git push项目到github
+# 1.	首先将指定上传的项目和github仓库关联
+在项目文件夹下，打开gitbash,或者直接打开gitbash,使用cd命令进入到指定文件夹下操作，接着输入指令
+例：git pull git@github.com:djqiang/gitdemo.git --allow-unrelated-histories(第一次使用仓库关联，项目名无需和仓库名相同)
+指令--allow-unrelated-histories 防止出现错误fatal: refusing to merge unrelated histories 
+2. push项目到github
+(1) $ git init
+(2) $ git remote add origin git@github.com:djqiang/gitdemo.git
+提示出错信息：fatal: remote origin already exists.
+    解决办法如下：
+    1、先输入$ git remote rm origin 
+    2、再输入$ git remote add origin git@github.com:djqiang/gitdemo.git 就不会报错了！
+(3) $ git add .
+(4) $ git commit -m “填写一些更新信息”
+(5) $ git push -u origin master(第一次push项目用该指令)
+由于新建的远程仓库是空的，所以要加上-u这个参数，等远程仓库里面有了内容之后，下次再从本地库上传内容的时候只需下面这样就可以了：
+	 $ git push origin master(后续push用该指令)
